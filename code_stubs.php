@@ -19,15 +19,9 @@ echo "Connected successfully";
 include 'references.php';
 
 //Define variables and set to empty values
-$name = $email = $gender = $comment = $website = "";
+$interviewee_name = $interviewee_email = "";
 
 //Get data form input (applies to both, from interviewee to manager and vice versa)
-if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-  } else {
-    $email = test_input($_POST["email"]);
-  }
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
     $nameErr = "Name is required";
@@ -85,9 +79,6 @@ array('label' => 'Rangecol', 'type' => 'string');
 $table['rows'] = $rows;
 $jsonTable_1 = json_encode($table);
 echo $jsonTable_1;
-
-
-
 /************End PHP************/
 ?>
 
@@ -113,8 +104,6 @@ function showUser(str) {
     }
 }
 </script>
-
-
 
 
 <!--HTML Form Stubs-->
