@@ -43,8 +43,8 @@ function test_input($data) {
 }
 
 //Insert data into the SQL database
-$sql = "INSERT INTO MyGuests (firstname, lastname, email)
-VALUES ('John', 'Doe', 'john@example.com')";
+$sql = "INSERT INTO responses (question1, question2, question3)
+VALUES ('abc', 'xyz', 'sample')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -53,13 +53,13 @@ if ($conn->query($sql) === TRUE) {
 }
 
 //View data inserted into the database with filters by the manager
-$sql = "SELECT id, firstname, lastname FROM MyGuests";
+$sql = "SELECT interviewee_id, name FROM interviewee";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     //Output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+        echo "id: " . $row["id"]. " - Name: " . $row["name"]. " " . $row["response"]. "<br>";
     }
 } else {
     echo "0 results";
